@@ -11,7 +11,7 @@
 > - 🌐 **[Launch the Free Web-Based Startup Financial Model Simulator](#)** — Stress-test user acquisition cohorts, LTV/CAC unit economics, and cash runway scenarios instantly in your browser with no installation or registration.
 > - 📥 **[Download the 60-Month Startup Financial Model Excel Workbook (.xlsx)](#)** — Get the full bottom-up spreadsheet template for offline FP&A forecasting, investor due diligence data rooms, and recurring board reporting.
 >
-> *Deployment & Commercial Note: Use the browser simulator for rapid exploratory sensitivity analysis, and the Excel workbook for persistent financial modeling and custom formula auditing. The Excel edition may be distributed commercially under applicable terms; verify live licensing and refund terms prior to publishing.*
+
 
 ---
 
