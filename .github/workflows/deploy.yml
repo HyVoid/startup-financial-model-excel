@@ -26,13 +26,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # Disabled npm cache setup to prevent failure when package-lock.json is absent
+          # Cache is disabled to prevent failure when package-lock.json is absent
 
       - name: Install Dependencies
-        run: npm install
+        # Use --legacy-peer-deps to avoid ERESOLVE peer dependency conflicts on CI
+        run: npm install --legacy-peer-deps
 
       - name: Build Application
         run: npm run build
+
+      - name: Add .nojekyll to prevent Jekyll asset filtering
+        run: touch ./dist/.nojekyll
 
       - name: Deploy to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v4
@@ -41,3 +45,5 @@ jobs:
           publish_dir: ./dist
           publish_branch: gh-pages
           force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
