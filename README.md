@@ -126,23 +126,24 @@ When scaling from 10,000 to 1,000,000 users, small shifts in paid conversion or 
 *This framework is a commercial decision-support model and FP&A forecasting tool—not statutory accounting software, certified tax or legal advice, payroll processing infrastructure, or a formal investment valuation. Do not use it as a substitute for GAAP/IFRS financial reporting or jurisdiction-specific compliance. Users should validate all tax, employer contribution, and commercial assumptions with qualified financial professionals.*
 
 ## Technical Details
-```
 
-### Workbook Architecture
+<details>
+<summary><strong>Workbook Architecture</strong></summary>
 
 The workbook is designed as a one-way dependency chain. Inputs are maintained centrally, operating forecasts calculate the consequences of those inputs, and financial and funding outputs consolidate the results.
 
-| Sheet                      | Responsibility                              | Principal outputs                                                                   |
-| -------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `01_Assumptions`           | Global settings and scenario matrix         | Currency, start date, tax assumption, active scenario, growth and cost drivers      |
-| `02_Growth_Acquisition`    | Monthly user acquisition and retention      | Paid and organic additions, churn, ending MAU, milestone timing and marketing spend |
-| `03_Revenue_UnitEconomics` | Monetization and customer economics         | Paying users, MRR, ARR run-rate, gross profit, CAC, LTV and payback                 |
-| `04_Team_Opex`             | Hiring and operating expense planning       | Headcount, salary costs, employer contributions, departmental OPEX                  |
-| `05_Monthly_Financials`    | Consolidated financial and cash-flow engine | EBITDA, net income, cash flow, cash balance, runway and funding gap                 |
-| `06_Scenarios_Funding`     | Capital planning and exit analysis          | Scenario comparisons, funding amount, dilution, MoIC and IRR                        |
-| `07_Executive_Dashboard`   | Executive and investor reporting            | Annual financial summaries, growth KPIs, milestones and liquidity indicators        |
+| Sheet | Responsibility | Principal outputs |
+| --- | --- | --- |
+| `01_Assumptions` | Global settings and scenario matrix | Currency, start date, tax assumption, active scenario, growth and cost drivers |
+| `02_Growth_Acquisition` | Monthly user acquisition and retention | Paid and organic additions, churn, ending MAU, milestone timing and marketing spend |
+| `03_Revenue_UnitEconomics` | Monetization and customer economics | Paying users, MRR, ARR run-rate, gross profit, CAC, LTV and payback |
+| `04_Team_Opex` | Hiring and operating expense planning | Headcount, salary costs, employer contributions, departmental OPEX |
+| `05_Monthly_Financials` | Consolidated financial and cash-flow engine | EBITDA, net income, cash flow, cash balance, runway and funding gap |
+| `06_Scenarios_Funding` | Capital planning and exit analysis | Scenario comparisons, funding amount, dilution, MoIC and IRR |
+| `07_Executive_Dashboard` | Executive and investor reporting | Annual financial summaries, growth KPIs, milestones and liquidity indicators |
 
-#### Dependency flow
+<details>
+<summary><strong>Dependency flow</strong></summary>
 
 ```
 01_Assumptions
@@ -162,18 +163,27 @@ The workbook is designed as a one-way dependency chain. Inputs are maintained ce
 
 The diagram represents the intended analytical dependencies. Revenue, growth and expense calculations must be aligned to the same monthly periods before consolidation.
 
-Time-axis convention
+</details>
+
+<details>
+<summary><strong>Time-axis convention</strong></summary>
 
 - `02_Growth_Acquisition`, `03_Revenue_UnitEconomics` and `05_Monthly_Financials` use columns `C:BK` for 60 monthly periods.
 - `04_Team_Opex` reserves columns `A:D` for roster inputs and uses `E:BL` for its 60-month forecast.
 - The model start date is centrally maintained in `01_Assumptions`.
 - The Excel implementation uses dynamic-array functions, including `SEQUENCE`, `SCAN`, `LET`, `LAMBDA`, `BYCOL` and spill references.
 
+</details>
+
 The source specification describes the model architecture and formula design. Actual browser and workbook implementations should be tested separately before claims about deployment, compatibility, or automated validation are made.
 
-### Three Traps That Catch Even Experienced Startup Founders
+</details>
 
-#### Trap 1 — Treating a large user base as proof of a viable business
+<details>
+<summary><strong>Three Traps That Catch Even Experienced Startup Founders</strong></summary>
+
+<details>
+<summary><strong>Trap 1 — Treating a large user base as proof of a viable business</strong></summary>
 
 Decision: Increase acquisition spending to accelerate market penetration.
 
@@ -181,18 +191,21 @@ Hidden flaw: The forecast assumes that active users translate into paying custom
 
 Consider a business with 100,000 MAU, a 2.5% paid conversion rate, and €19 monthly ARPU.
 
-| Metric                                        | Illustrative result |
-| --------------------------------------------- | ------------------- |
-| Monthly active users                          | 100,000             |
-| Paying users                                  | 2,500               |
-| Monthly revenue                               | €47,500             |
-| Revenue at 4.5% conversion and unchanged ARPU | €85,500             |
+| Metric | Illustrative result |
+| --- | --- |
+| Monthly active users | 100,000 |
+| Paying users | 2,500 |
+| Monthly revenue | €47,500 |
+| Revenue at 4.5% conversion and unchanged ARPU | €85,500 |
 
 The same active-user base produces substantially different revenue depending on conversion performance.
 
 The incorrect approach is to optimize acquisition volume alone. The corrected approach is to evaluate acquisition and monetization together, then determine whether the additional spending produces economically attractive paying customers.
 
-#### Trap 2 — Treating LTV/CAC as a cash-flow forecast
+</details>
+
+<details>
+<summary><strong>Trap 2 — Treating LTV/CAC as a cash-flow forecast</strong></summary>
 
 Decision: Scale marketing because projected LTV/CAC exceeds 3.0x.
 
@@ -200,18 +213,21 @@ Hidden flaw: A favorable lifetime-value ratio does not establish that the compan
 
 Using the base assumptions of €29 monthly ARPU, an 18% COGS rate, and 4% monthly churn:
 
-| Metric                               | Illustrative result |
-| ------------------------------------ | ------------------- |
-| Monthly gross profit per paying user | €23.78              |
-| Simplified LTV                       | €594.50             |
-| Paid CAC                             | €12.00              |
-| LTV / Paid CAC                       | 49.5x               |
+| Metric | Illustrative result |
+| --- | --- |
+| Monthly gross profit per paying user | €23.78 |
+| Simplified LTV | €594.50 |
+| Paid CAC | €12.00 |
+| LTV / Paid CAC | 49.5x |
 
 The ratio is unusually high because the supplied assumptions imply a long customer lifetime and low acquisition cost. It should be treated as a model output to investigate, not as evidence that the underlying business is validated.
 
 A business can still face a cash shortage while reporting attractive modeled unit economics. The corrected approach is to assess unit economics alongside marketing expenditure, fixed operating commitments, acquisition payback, and the monthly cash balance.
 
-#### Trap 3 — Raising capital against EBITDA instead of the cash trough
+</details>
+
+<details>
+<summary><strong>Trap 3 — Raising capital against EBITDA instead of the cash trough</strong></summary>
 
 Decision: Raise enough capital to cover the forecast operating loss until EBITDA turns positive.
 
@@ -219,32 +235,41 @@ Hidden flaw: EBITDA does not capture every cash movement. Payment timing, workin
 
 The source model explicitly separates the P&L engine from the cash-flow engine. The funding analysis should therefore be based on the projected cash balance and minimum cash requirement, not solely on the month of EBITDA break-even.
 
-| Incorrect approach                                       | Corrected approach                                                               |
-| -------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| Use the EBITDA break-even month as the funding endpoint. | Track the monthly cash balance across the forecast horizon.                      |
-| Raise only enough to cover forecast operating losses.    | Estimate the maximum cumulative cash deficit and add the required safety buffer. |
-| Assume positive EBITDA means cash is sufficient.         | Review liquidity and runway independently of operating profitability.            |
+| Incorrect approach | Corrected approach |
+| --- | --- |
+| Use the EBITDA break-even month as the funding endpoint. | Track the monthly cash balance across the forecast horizon. |
+| Raise only enough to cover forecast operating losses. | Estimate the maximum cumulative cash deficit and add the required safety buffer. |
+| Assume positive EBITDA means cash is sufficient. | Review liquidity and runway independently of operating profitability. |
 
 The decision changes from “How much money is needed until the business becomes profitable?” to “How much money is needed to avoid breaching the minimum cash buffer under the chosen operating scenario?”
 
-### Example Scenario
+</details>
+
+</details>
+
+<details>
+<summary><strong>Example Scenario</strong></summary>
 
 The following illustration uses the source specification's base-case acquisition and monetization assumptions. It demonstrates how the model's decision logic should be interpreted; it is not a verified forecast for a particular startup.
 
-#### Inputs
+<details>
+<summary><strong>Inputs</strong></summary>
 
-| Assumption                 | Base case |
-| -------------------------- | --------- |
-| Monthly paid CAC           | €12.00    |
-| Monthly churn              | 4.0%      |
-| Organic K-factor           | 15.0%     |
-| Paid conversion rate       | 4.5%      |
-| Monthly ARPU               | €29.00    |
-| COGS rate                  | 18.0%     |
-| Employer contribution rate | 25.0%     |
-| Minimum cash buffer        | 3 months  |
+| Assumption | Base case |
+| --- | --- |
+| Monthly paid CAC | €12.00 |
+| Monthly churn | 4.0% |
+| Organic K-factor | 15.0% |
+| Paid conversion rate | 4.5% |
+| Monthly ARPU | €29.00 |
+| COGS rate | 18.0% |
+| Employer contribution rate | 25.0% |
+| Minimum cash buffer | 3 months |
 
-#### Step 1 — Translate growth into monetization
+</details>
+
+<details>
+<summary><strong>Step 1 — Translate growth into monetization</strong></summary>
 
 At 100,000 ending MAU, a 4.5% conversion rate implies 4,500 paying users.
 
@@ -252,7 +277,10 @@ At €29 monthly ARPU, that user base produces €130,500 in monthly recurring r
 
 The calculation establishes a revenue run-rate, not recognized cash receipts. Actual revenue and collection timing may differ.
 
-#### Step 2 — Test customer economics
+</details>
+
+<details>
+<summary><strong>Step 2 — Test customer economics</strong></summary>
 
 At an 18% COGS rate, monthly gross profit per paying user is €23.78.
 
@@ -264,65 +292,84 @@ Using a simplified lifetime-value estimate:
 
 This is a strong modeled ratio, but it is highly sensitive to churn, acquisition attribution, and the assumption that the same gross margin and churn rate persist over the customer's lifetime.
 
-#### Step 3 — Bring the operating plan into the analysis
+</details>
+
+<details>
+<summary><strong>Step 3 — Bring the operating plan into the analysis</strong></summary>
 
 The headcount and OPEX plan determines how much gross profit remains after salaries, employer contributions, fixed costs, and advertising.
 
 A company with positive unit economics may still generate negative EBITDA when the team and growth plan are too large for its current revenue base.
 
-#### Step 4 — Determine the funding decision
+</details>
+
+<details>
+<summary><strong>Step 4 — Determine the funding decision</strong></summary>
 
 The monthly financial model consolidates operating performance and cash movements. The funding analysis then compares the projected cash deficit with the minimum cash buffer.
 
 Decision implication: A defensible growth plan needs three linked answers: how efficiently customers can be acquired, how much gross profit they generate, and whether the company can finance the operating plan until cash generation becomes sustainable.
 
-### Formula Reference
+</details>
+
+</details>
+
+<details>
+<summary><strong>Formula Reference</strong></summary>
 
 The following groups document the principal formula patterns specified for the workbook. They are reference formulas rather than a guarantee that every formula has been tested in a live workbook.
 
-### Validation Rules
+</details>
+
+<details>
+<summary><strong>Validation Rules</strong></summary>
 
 The following rules define the minimum checks required for a reliable implementation. Some are design requirements; others are additional safeguards recommended before using the model for management or investor decisions.
 
-| Field or area              | Validation rule                                                                                         | Error behavior                                                                               |
-| -------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Currency symbol            | Require a nonblank supported display symbol. Currency conversion is not implied by changing the symbol. | Warn if the symbol is missing; disclose that amounts remain in the same underlying currency. |
-| Model start date           | Require a valid date representing the first day of a month.                                             | Reject invalid dates or flag a non-month-start date.                                         |
-| Active scenario            | Accept only integer values `1`, `2`, or `3`.                                                            | Reject other values before scenario calculations run.                                        |
-| Tax rate                   | Require a percentage between 0% and 100%, subject to applicable tax treatment.                          | Flag values outside the range.                                                               |
-| Minimum cash buffer        | Require a nonnegative number of months.                                                                 | Flag negative or nonnumeric inputs.                                                          |
-| Paid CAC                   | Require a positive value whenever paid acquisition spending is positive.                                | Flag division-by-zero conditions and invalid acquisition assumptions.                        |
-| Churn rate                 | Require a value greater than 0% and no greater than 100% for the simplified LTV formula.                | Flag invalid assumptions and suppress misleading LTV outputs.                                |
-| Conversion rate            | Require a value between 0% and 100%.                                                                    | Reject out-of-range inputs.                                                                  |
-| ARPU                       | Require a nonnegative monetary value.                                                                   | Flag negative values.                                                                        |
-| COGS rate                  | Require a value between 0% and 100%.                                                                    | Flag out-of-range values and inconsistent gross-margin results.                              |
-| Employer contribution rate | Require a nonnegative percentage.                                                                       | Flag negative values or unexpected rates.                                                    |
-| Hiring month               | Require an integer between 1 and 60 for a planned hire.                                                 | Flag hires outside the forecast horizon.                                                     |
-| Department                 | Accept only `R&D`, `S&M`, or `G&A` where those categories drive calculations.                           | Flag unrecognized department names that would otherwise be omitted from departmental totals. |
-| Marketing budget           | Require nonnegative monthly amounts.                                                                    | Flag negative budgets and investigate unexpected blanks.                                     |
-| Funding amount             | Require a nonnegative value; compare the entered amount with the modeled funding requirement.           | Warn when planned funding falls below the recommended amount.                                |
-| Pre-money valuation        | Require a nonnegative value and a positive post-money valuation for ownership calculations.             | Suppress invalid dilution results.                                                           |
-| Use-of-funds allocation    | Require the allocation percentages to total 100% if the plan intends to allocate the entire round.      | Warn when the allocation does not reconcile to 100%.                                         |
-| Dynamic-array outputs      | Ensure all intended spill ranges are unobstructed.                                                      | Resolve `#SPILL!` by removing conflicting cell contents.                                     |
-| Forecast periods           | Maintain consistent 60-month indices and aligned dates across calculation sheets.                       | Flag missing, duplicated, or misaligned periods.                                             |
-| Cash and funding           | Reconcile opening cash, operating cash flow, financing inflows, and ending cash.                        | Flag any mismatch between the cash roll-forward and the funding analysis.                    |
-| Exit returns               | Require a positive investment amount and clearly defined ownership assumptions.                         | Suppress invalid MoIC and IRR calculations.                                                  |
+| Field or area | Validation rule | Error behavior |
+| --- | --- | --- |
+| Currency symbol | Require a nonblank supported display symbol. Currency conversion is not implied by changing the symbol. | Warn if the symbol is missing; disclose that amounts remain in the same underlying currency. |
+| Model start date | Require a valid date representing the first day of a month. | Reject invalid dates or flag a non-month-start date. |
+| Active scenario | Accept only integer values `1`, `2`, or `3`. | Reject other values before scenario calculations run. |
+| Tax rate | Require a percentage between 0% and 100%, subject to applicable tax treatment. | Flag values outside the range. |
+| Minimum cash buffer | Require a nonnegative number of months. | Flag negative or nonnumeric inputs. |
+| Paid CAC | Require a positive value whenever paid acquisition spending is positive. | Flag division-by-zero conditions and invalid acquisition assumptions. |
+| Churn rate | Require a value greater than 0% and no greater than 100% for the simplified LTV formula. | Flag invalid assumptions and suppress misleading LTV outputs. |
+| Conversion rate | Require a value between 0% and 100%. | Reject out-of-range inputs. |
+| ARPU | Require a nonnegative monetary value. | Flag negative values. |
+| COGS rate | Require a value between 0% and 100%. | Flag out-of-range values and inconsistent gross-margin results. |
+| Employer contribution rate | Require a nonnegative percentage. | Flag negative values or unexpected rates. |
+| Hiring month | Require an integer between 1 and 60 for a planned hire. | Flag hires outside the forecast horizon. |
+| Department | Accept only `R&D`, `S&M`, or `G&A` where those categories drive calculations. | Flag unrecognized department names that would otherwise be omitted from departmental totals. |
+| Marketing budget | Require nonnegative monthly amounts. | Flag negative budgets and investigate unexpected blanks. |
+| Funding amount | Require a nonnegative value; compare the entered amount with the modeled funding requirement. | Warn when planned funding falls below the recommended amount. |
+| Pre-money valuation | Require a nonnegative value and a positive post-money valuation for ownership calculations. | Suppress invalid dilution results. |
+| Use-of-funds allocation | Require the allocation percentages to total 100% if the plan intends to allocate the entire round. | Warn when the allocation does not reconcile to 100%. |
+| Dynamic-array outputs | Ensure all intended spill ranges are unobstructed. | Resolve `#SPILL!` by removing conflicting cell contents. |
+| Forecast periods | Maintain consistent 60-month indices and aligned dates across calculation sheets. | Flag missing, duplicated, or misaligned periods. |
+| Cash and funding | Reconcile opening cash, operating cash flow, financing inflows, and ending cash. | Flag any mismatch between the cash roll-forward and the funding analysis. |
+| Exit returns | Require a positive investment amount and clearly defined ownership assumptions. | Suppress invalid MoIC and IRR calculations. |
 
-#### Implementation checks before release
+<details>
+<summary><strong>Implementation checks before release</strong></summary>
 
 The source design contains several areas that require explicit reconciliation before a workbook can be considered financially validated:
 
-1\. User growth reconciliation. The ending-MAU formula embeds churn and K-factor growth directly, while separate organic-addition and churn rows are also calculated. Verify that the ending balance reconciles to beginning MAU plus new users less churn without double-counting organic growth.
+1. User growth reconciliation. The ending-MAU formula embeds churn and K-factor growth directly, while separate organic-addition and churn rows are also calculated. Verify that the ending balance reconciles to beginning MAU plus new users less churn without double-counting organic growth.
 
-2\. Cash-flow reconciliation. The source uses net income as operating cash flow and calculates the funding gap from cumulative operating cash flow. Verify that all material cash movements and opening cash assumptions are represented consistently.
+2. Cash-flow reconciliation. The source uses net income as operating cash flow and calculates the funding gap from cumulative operating cash flow. Verify that all material cash movements and opening cash assumptions are represented consistently.
 
-3\. Scenario comparison. A single active-scenario switch cannot independently display all three scenarios at once. The comparison matrix must either calculate each scenario separately or explicitly document a controlled scenario-recalculation method.
+3. Scenario comparison. A single active-scenario switch cannot independently display all three scenarios at once. The comparison matrix must either calculate each scenario separately or explicitly document a controlled scenario-recalculation method.
 
-4\. Funding and ownership. The source distinguishes recommended funding from the actual round amount. Verify that the funding-gap analysis excludes financing inflows when calculating the operating deficit, while the cash balance includes the financing inflows actually planned.
+4. Funding and ownership. The source distinguishes recommended funding from the actual round amount. Verify that the funding-gap analysis excludes financing inflows when calculating the operating deficit, while the cash balance includes the financing inflows actually planned.
 
-5\. Formula and platform compatibility. Test the dynamic-array formulas in the target Excel version. Validate date alignment, zero-denominator behavior, milestone detection, spill ranges, and the formulas' actual results rather than relying solely on a structural checklist.
+5. Formula and platform compatibility. Test the dynamic-array formulas in the target Excel version. Validate date alignment, zero-denominator behavior, milestone detection, spill ranges, and the formulas' actual results rather than relying solely on a structural checklist.
 
 A source-level checklist marked as passed is not equivalent to an executed workbook test. These checks should be completed against the implemented file before the model is relied upon for financing decisions.
+
+</details>
+
+</details>
 
 ## The Business Logic & Methodology
 
