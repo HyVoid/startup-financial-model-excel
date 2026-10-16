@@ -1,0 +1,6 @@
+{
+  "name": "Startup Financial Model & Unit Economics",
+  "description": "Interactive SaaS financial modeling engine with 60-month multi-scenario forecasting, unit economics, runway analytics, and executive dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
