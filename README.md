@@ -9,8 +9,8 @@
 
 > **Access the Startup Financial Projection & Runway Tools**
 >
-> - 🌐 **[Launch the Free Web-Based Startup Financial Model Simulator](#)** — Stress-test user acquisition cohorts, LTV/CAC unit economics, and cash runway scenarios instantly in your browser with no installation or registration.
-> - 📥 **[Download the 60-Month Startup Financial Model Excel Workbook (.xlsx)](https://theseusworkshop.com/l/rdeccv)** — Get the full bottom-up spreadsheet template for offline FP&A forecasting, investor due diligence data rooms, and recurring board reporting.
+> - 🌐 **[Launch the Free Web-Based Startup Financial Model Simulator](https://hyvoid.github.io/startup-financial-model-excel/)** — Stress-test user acquisition cohorts, LTV/CAC unit economics, and cash runway scenarios instantly in your browser with no installation or registration.
+> - 📥 **[Download the 60-Month Startup Financial Model Excel Workbook (.xlsx)](https://theseusworkshop.com/l/rdeccv?utm_source=github&utm_medium=GitHub%20README)** — Get the full bottom-up spreadsheet template for offline FP&A forecasting, investor due diligence data rooms, and recurring board reporting.
 >
 
 
@@ -62,7 +62,7 @@ Review the automated 60-month output tabs to verify how operational choices impa
 Toggle between **Conservative, Base, and Optimistic cases** to stress-test how higher churn, slower paid conversion, or delayed hiring impacts your cash runway and investor return multiples.
 
 > 📊 **Ready to build your investor-ready data room?** 
-> After stress-testing your top-line assumptions in the **[Free Web-Based Startup Financial Simulator](#)**, download the **[Reusable 60-Month Financial Model Excel Workbook (.xlsx)](#)** to customize line-item schedules, maintain historical actuals vs. budget variance, and share a transparent, formula-auditable spreadsheet with VC investors.
+> After stress-testing your top-line assumptions in the **[Free Web-Based Startup Financial Simulator](https://hyvoid.github.io/startup-financial-model-excel/)**, download the **[Reusable 60-Month Financial Model Excel Workbook (.xlsx)](https://theseusworkshop.com/l/rdeccv?utm_source=github&utm_medium=GitHub%20README)** to customize line-item schedules, maintain historical actuals vs. budget variance, and share a transparent, formula-auditable spreadsheet with VC investors.
 
 ---
 
