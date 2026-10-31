@@ -43,7 +43,7 @@ const AppContent: React.FC = () => {
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
-              <span>Startup Financial Model & Unit Economics</span>
+              <span>Theseus Workshop · Startup Financial Model & Unit Economics</span>
               <span>·</span>
               <span>All calculations running client-side</span>
             </div>

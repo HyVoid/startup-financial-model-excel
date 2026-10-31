@@ -140,16 +140,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenCsvModal }) => {
         {/* Top: Brand & Scenario Switcher */}
         <div className="p-5 border-b border-[var(--color-border)]">
           {/* Brand Identity */}
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-[10px] bg-[var(--color-primary)] flex items-center justify-center text-white shadow-sm shrink-0">
+          <div className="flex items-start gap-3">
+            <div className="w-9 h-9 rounded-[10px] bg-[var(--color-primary)] flex items-center justify-center text-white shadow-sm shrink-0 mt-0.5">
               <TrendingUp className="w-4 h-4 text-[#2251FF]" />
             </div>
-            <div className="min-w-0">
-              <div className="font-heading font-semibold text-[16px] leading-tight text-[var(--color-primary)] tracking-tight truncate">
-                Financial Engine
+            <div className="min-w-0 flex-1">
+              <div className="font-heading font-bold text-[17px] leading-tight text-[var(--color-primary)] tracking-tight">
+                Theseus Workshop
               </div>
-              <div className="text-[10px] text-[var(--color-muted)] font-mono uppercase tracking-wider truncate">
-                SaaS Model · 60 Months
+              <div
+                className="text-[11px] text-[var(--color-muted)] leading-snug mt-1 font-medium"
+                title="Startup Financial Model & Unit Economics"
+              >
+                Startup Financial Model &amp; Unit Economics
               </div>
             </div>
           </div>
