@@ -31,6 +31,14 @@ Instead of stitching together disconnected marketing sheets and static P&L summa
 | **Profitability vs. Cash Flow Blindness** | Separates accounting operating profit from actual bank liquidity to identify exactly when working capital runs dry. | Monthly EBITDA, operating break-even month, net cash burn rate, minimum cash trough, runway (months) |
 | **Arbitrary VC Fundraising & Dilution Targets** | Models pre-money/post-money funding rounds against multi-scenario cash deficits to justify capital raises to investors. | Total funding gap, required capital buffer, equity dilution (%), exit valuation multiple & MOIC |
 
+## Spreadsheet Preview
+
+Want to take a closer look before downloading? You can preview the spreadsheet in Google Sheets to explore its layout, structure, and calculation logic.
+
+**[View Spreadsheet Preview on Google Sheets](https://docs.google.com/spreadsheets/d/1J8vQPdZbmHpbDUisejPXzywPz8RJCImF/edit?usp=sharing&ouid=108770714531989318327&rtpof=true&sd=true)**
+
+> **Note on Compatibility:** The Google Sheets preview may display occasional `#NAME?` errors or formula warnings due to differences between Google Sheets and Microsoft Excel formula compatibility. These are preview-only compatibility issues and do not affect the functionality of the original Excel workbook. For the intended formula behavior and full functionality, please download and open the `.xlsx` file in Microsoft Excel.
+
 ---
 
 ## Step-by-Step Tutorial: How to Build a 5-Year Startup Financial Forecast
