@@ -18,6 +18,17 @@
 
 ---
 
+## Questions, Feedback & Product Updates
+
+This model is designed around practical startup planning, unit-economics review, and fundraising workflows. Feedback from founders, finance leads, and FP&A users helps identify where assumptions, model outputs, or reporting steps need clarification or improvement.
+
+- **Questions & workflow fit:** [Ask about customer-growth assumptions, CAC/LTV, monetization, hiring costs, cash burn, runway, or fundraising scenarios](https://github.com/HyVoid/business-decision-toolbox/discussions/categories/questions).
+- **Ideas & improvements:** [Suggest additional startup planning scenarios, forecast drivers, sensitivity checks, or investor-reporting outputs](https://github.com/HyVoid/business-decision-toolbox/discussions/categories/ideas).
+- **Report a technical problem:** [Open the startup financial model issue form](https://github.com/HyVoid/startup-financial-model-excel/issues/new?template=bug-report.yml).
+- **Product updates:** [Follow maintenance and improvement notes](https://github.com/HyVoid/business-decision-toolbox/discussions/categories/product-updates).
+
+When describing a problem, mention the affected worksheet, forecast month, assumption, scenario, and expected versus actual output. Use synthetic or anonymized examples. Do not upload real cap tables, investor materials, bank statements, payroll records, customer exports, credentials, or confidential company financial information.
+
 ## Core Startup FP&A Metrics & Fundraising Challenges Solved
 
 Instead of stitching together disconnected marketing sheets and static P&L summaries, this bottom-up financial engine connects top-line growth drivers directly to cash flow liquidity. Here is how the model maps **startup financial planning pain points** to auditable **VC fundraising and unit economics metrics**:
